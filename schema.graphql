@@ -49,3 +49,33 @@ type Account @entity {
   sentTransfers: [Transfer] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of Transfer
   recievedTransfers: [Transfer] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of Transfer
 }
+
+type BlockEntity @entity {
+  """
+  id field is always required and must look like this
+  """
+  id: ID!
+  """
+  The block height of the transfer
+  """
+  blockNumber: Int!
+  """
+  The timestamp
+  """
+  timestamp: String!
+}
+
+type ExtrinsicEntity @entity {
+  """
+  id field is always required and must look like this
+  """
+  id: ID!
+  """
+  The block height of the transfer
+  """
+  blockNumber: Int!
+  """
+  The timestamp
+  """
+  timestamp: String!
+}
