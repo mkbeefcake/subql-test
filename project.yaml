@@ -10,7 +10,7 @@ runner:
     version: "*"
 description: >-
   Joystream explorer (test)
-repository: "https://github.com/subquery/subql-starter"
+repository: "https://github.com/mkbeefcake/subql-test"
 schema:
   file: ./schema.graphql
 network:
@@ -36,12 +36,5 @@ dataSources:
           kind: substrate/BlockHandler
         - handler: handleCall
           kind: substrate/CallHandler
-          filter:
-            module: balances
-            method: Deposit
-            success: true
         - handler: handleEvent
           kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Transfer
