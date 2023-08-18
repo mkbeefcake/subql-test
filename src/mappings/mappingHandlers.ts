@@ -9,6 +9,9 @@ import { decodeAddress } from "@polkadot/util-crypto";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
   // Do something with each block handler here
+  logger.info(
+    `Saving block ${block.block.header.number.toString()}`
+  );
   const blockEntity: BlockEntity = BlockEntity.create({
     id: block.block.header.hash.toString(),
     blockNumber: block.block.header.number.toNumber(),
@@ -18,6 +21,9 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 }
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+  logger.info(
+    `New Extrinsic found at block ${extrinsic.block.block.header.number.toString()}`
+  );
   const extrinsicEntity = ExtrinsicEntity.create({
     id: extrinsic.block.block.header.hash.toString(),
     blockNumber: extrinsic.block.block.header.number.toNumber(),
